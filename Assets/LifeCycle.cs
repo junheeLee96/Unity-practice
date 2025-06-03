@@ -5,52 +5,37 @@ namespace Example
 {
     public class LifeCycle : MonoBehaviour
     {
-        private void Awake()
+        void Update()
         {
-            Debug.Log("플레이어 데이터 준비 완료");
-        }
+            // unity 안에 있는 입력값 처리
+            // anyKeyDown 아무 입력을 받을 때 true (bool)
+            if (Input.anyKeyDown)
+            {
+                Debug.Log("플레이어가 아무 키를 입력 받았습니다.");
+            }
 
-        private void Start()
-        {
-            Debug.Log("사냥 장비를 챙겼습니다");
-        }
+           /*
+            if (Input.anyKey)
+            {
+                Debug.Log("아무 키를 누르고 있습니다.");
+            }
+            */
+           if (Input.GetKeyDown(KeyCode.Return))
+           {
+               Debug.Log("엔터 키를 눌렀습니다. (GetKeyDown)");
+           }
 
-        private void onEabled()
-        {
-            
-        }
+           // 키를 누르고 있는 동안 (매 프레임 실행됨)
+           if (Input.GetKey(KeyCode.Return))
+           {
+               Debug.Log("엔터 키를 누르고 있습니다. (GetKey)");
+           }
 
-        private void onDisabled()
-        {
-            
-        }
-
-        private void FixedUpdate()
-        {
-            /*
-             * 프레임마다 실행 -> CPU 부하
-             * 주로 물리 연산과 관련된 연산이 들어감
-             */
-            Debug.Log("이동~");
-        }
-
-        private void Update()
-        {
-            // 게임 로직 업데이트
-            // 사용자 환경에 따라 실행이 떨어질 수 있음
-            Debug.Log("몬스터 사냥~");
-        }
-
-        private void LateUpdate()
-        {
-            // 모든 업데이트 끝난 후 실행
-            Debug.Log("<UNK> <UNK> <UNK>");
-        }
-
-        private void OnDestroy()
-        {
-            // 게임 오브젝트가 삭제될 때
-            Debug.Log("<UNK> <UNK> <UNK>");
+           // 키를 뗐을 때 (한 번만 실행됨)
+           if (Input.GetKeyUp(KeyCode.Return))
+           {
+               Debug.Log("엔터 키에서 손을 뗐습니다. (GetKeyUp)");
+           }
         }
     }
 }
