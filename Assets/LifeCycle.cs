@@ -16,9 +16,13 @@ namespace Example
             // if (Input.GetButton("Jump"))
             if (Input.GetButton("Horizontal"))
             {
-                Debug.Log("Horizontal"+Input.GetAxis("Horizontal"));
-                
                 // 수평, 수직 버튼 입력을 받으면 float 리턴
+                // Debug.Log("Horizontal"+Input.GetAxis("Horizontal"));
+                
+                // GetAxis와 달리 가중치가 없음. 가만히 잇으면 0, 움직이면 1
+                Debug.Log("Horizontal"+Input.GetAxisRaw("Horizontal"));
+                
+                
                 
                 
             }
