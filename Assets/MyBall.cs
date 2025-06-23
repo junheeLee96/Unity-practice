@@ -48,5 +48,10 @@ namespace Example
                 rigid.AddForce(Vector3.up * 3, ForceMode.Impulse);
             }
         }
+
+        public void Jump() 
+        {
+            rigid.AddForce(Vector3.up * 20, ForceMode.Impulse);
+        }
     }
 }
